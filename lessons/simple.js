@@ -1,15 +1,13 @@
-const {sum, subtract} = require('../math')
+const { sumAsync, subtractAsync } = require("../math");
 
-let result, expected
+test("sum adds numbers", async () => {
+  const result = await sumAsync(3, 7);
+  const expected = 10;
+  expect(result).toBe(expected);
+});
 
-result = sum(3, 7)
-expected = 10
-if (result !== expected) {
-  throw new Error(`${result} is not equal to ${expected}`)
-}
-
-result = subtract(7, 3)
-expected = 4
-if (result !== expected) {
-  throw new Error(`${result} is not equal to ${expected}`)
-}
+test("subtract subctracts numbers", async () => {
+  const result = await subtractAsync(7, 3);
+  const expected = 4;
+  expect(result).toBe(expected);
+});
